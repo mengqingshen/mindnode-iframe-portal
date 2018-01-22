@@ -1,0 +1,38 @@
+{
+  "name": "mindnode-iframe-portal",
+  "version": "1.0.0",
+  "description": "The url shared by mindnote cant't be accesed within iframe, so let's build a server to proxy the link.!!!Just for mindnode.",
+  "main": "app.js",
+  "repository": "https://github.com/mengqingshen/mindnode-iframe-portal.git",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "node-fetch": "^1.7.3",
+    "pm2": "^2.9.1"
+  },
+  "scripts": {
+    "start": "better-npm-run start"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "nodemon src/app",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "koa*"
+      }
+    }
+  },
+  "nodemanConfig": {
+    "ignore": [
+      "ecosystem.json",
+      ".gitignore",
+      "node_modules/*"
+    ]
+  },
+  "devDependencies": {
+    "better-npm-run": "^0.1.0",
+    "nodeman": "^1.1.2",
+    "nodemon": "^1.14.11"
+  },
+  "author": "孟庆申 <mengqingshen@meituan.com>",
+  "license": "MIT"
+}
