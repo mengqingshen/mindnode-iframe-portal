@@ -8,7 +8,10 @@ const app = new Koa()
 app.use(c2k(proxyMiddleware(['**/*'], {
   target: 'https://my.mindnode.com',
   changeOrigin: true,
-  logLevel: 'debug'
+  logLevel: 'debug',
+  onProxyRes: (proxyRes) => {
+    delete proxyRes.headers['x-frame-options']
+  }
 })))
 
 app.listen(PORT)
